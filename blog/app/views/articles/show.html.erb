@@ -2,6 +2,13 @@
   <strong>Title:</strong>
   <%= @article.title %>
 </p>
+
+<p>
+  Tags:
+  <% @article.categories.each do |cat| %>
+    <%= link_to cat.name, category_path(cat) %>
+  <% end %>
+</p>
  
 <p>
   <strong>Text:</strong>
@@ -16,3 +23,4 @@
  
 <%= link_to 'Edit', edit_article_path(@article) %> |
 <%= link_to 'Back', articles_path %>
+
